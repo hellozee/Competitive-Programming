@@ -18,7 +18,7 @@ int dijkstra(std::vector<std::vector<int> >graph,int vertex,int size){
     std::vector<int>map(size,INT_MAX);
     std::priority_queue<distances>heap;
     std::vector<int>visited(size,false);
-    map[vertex] = 0;
+    map[vertex] = 0; //Distance to the vertex itself is always 0
     for(int i=0;i<size;i++){
         if(i == vertex){
             continue;
@@ -27,26 +27,26 @@ int dijkstra(std::vector<std::vector<int> >graph,int vertex,int size){
             distances a;
             a.index = i;
             a.dist = graph[vertex][i];
-            heap.push(a);
+            heap.push(a);//If edge with the vertex is present then insert with the edge weight 
         }else{
             distances a;
             a.index = i;
             a.dist = INT_MAX;
-            heap.push(a);
+            heap.push(a);//If not then push with infinity , I mean the maximum possible number
         }
     }
-    visited[vertex] = true;
+    visited[vertex] = true;//You are begining from it
     while(!heap.empty()){
-        distances top = heap.top();
-        heap.pop();
+        distances top = heap.top(); // Getting the smallest distance from the priority queue
+        heap.pop();//throw it out
         int ind = top.index;
         int distance = top.dist;
         if(visited[ind]){
-            continue;
+            continue;//if visited earlier , it means we have a smaller distance to it , lets continue
         }
         //std::cout << ind << ' ';
-        map[ind] = distance;
-        visited[ind] = true;
+        map[ind] = distance;//The smallest distance possible
+        visited[ind] = true;//We visited it
         for(int i=0;i<size;i++){
             if(graph[ind][i] != NIL && !visited[i]){
                 distances a;
@@ -54,13 +54,14 @@ int dijkstra(std::vector<std::vector<int> >graph,int vertex,int size){
                 //std::cout << ind << ' ' << distance << ' ';
                 a.dist = graph[ind][i] + distance;
                 if( a.dist < map[i]){
-                    heap.push(a);
+                    heap.push(a);//finding the vertexes connected to the smallest vertex we just poped from the heap
                 }
             }
         }
     }
     //std::cout << std::endl;
-    int ret = *std::max_element(map.begin(),map.end());
+    int ret = *std::max_element(map.begin(),map.end());//As it is a fully connected graph we will encounter each & every vertex
+                                                       //and we will have distance of integral length , so no INT_MAXes possible
     return ret;
 }
 
