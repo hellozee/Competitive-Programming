@@ -1,22 +1,23 @@
-#include <iostream>
+//Author  : Kuntal Majumder
+//Problem : 01TILES
 
-using namespace std;
+#include <iostream>
 
 int main(){
 
 	int n;
-	cin >> n;
-	int pre = 1;
-	int cur = 1;
-	int fib;
+	std::cin >> n;
+	int f1 = 1;
+	int f2 = 1;
+	int fn;
 
 	for( int i = 0;i < n-1;i ++){
-		fib = (pre+cur)%15746;
-		pre = cur;
-		cur = fib;
+		fn = (f1+f2)%15746;
+		f1 = f2;
+		f2 = fn;
 	}
 
-	cout << cur;
+	std::cout << f2 << std::endl;
 
 
 	return 0;
