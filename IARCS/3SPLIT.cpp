@@ -5,6 +5,46 @@
 #include <vector>
 #include <utility>
 
+//This is a typical leaf cutting problem , where you have to divide the whole tree into 3 parts
+//Now if there are n edges you can cut them in nC2 ways
+//First you have to find out which one are leaves , in simple words you have to find out an order in which you can cut or 
+//you can say put 2 cuts , now if a leaf is not cut it must be added to its parent
+//Take the given example
+// 1        5
+//  \      /
+//   3 -- 4
+//  /      \
+// 2        6
+// Now the order to cut the tree will be first , the leaves that is nodes with 1 edges
+// which is 1 , 2 ,5 , 6
+// 3 and 4 remain , let us add them to the queue , 1(3) , 2(3) ,5(4),6(4),3(4),4(null) , the nodes in brackets are their parents
+// Ok as far as the solution goes lets cut the 3(4) edge and 5(4) edge
+// It will go like this:
+// First we will traverse through the genarated array , we are no cutting 1(3) so
+//          5
+//         /
+//  1+3 -- 4
+//  /      \
+// 2        6
+// We are also no going to cut 2(3)
+//            5
+//           /
+// 2+1+3 -- 4
+//           \
+//            6
+// Ok we are cutting 5(4)
+//            5
+//           
+// 2+1+3 -- 4
+//           \
+//            6
+// We are not going to cut 6(4)
+//            5
+//           
+// 2+1+3 -- 4+6
+// We are going to cut the 3(4) edge
+// Hence the graph is divided like this
+// (2+1+3)--(4+6)--(5) , which is the solution , but before looking at the solution , I think you must try it once , now
 
 int main(){
     //Inputs
