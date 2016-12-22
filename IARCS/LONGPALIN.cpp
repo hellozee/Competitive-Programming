@@ -4,7 +4,7 @@
 #include <string>
 
 void longestpalin(std::string str,int n){
-    std::vector<std::vector<bool> > table(n,std::vector<bool>(n));                   //boolean table for keeping records of palindromes 
+    std::vector<std::vector<bool> > table(n,std::vector<bool>(n));//boolean table for keeping records of palindromes 
     
     int maxLength = 0;
     for(int i=0;i<n;i++){
@@ -24,7 +24,9 @@ void longestpalin(std::string str,int n){
     for(int k=3;k <= n;k++){
         for(int i=0;i<n-k+1;i++){
             int j = i + k - 1;
-            if(table[i+1][j-1]&&str[i] == str[j]){//checking whether the middle letters are in a pallindrome or not
+            if(table[i+1][j-1]&&str[i] == str[j]){
+                //if 2 letters are same and the word/letter inbetween them is a palindrome
+                //then the whole sequence is a palindrome
                 table[i][j] = true; 
                 if(k > maxLength){
                     maxLength = k;
