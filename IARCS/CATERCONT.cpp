@@ -13,7 +13,7 @@ std::vector<bool>visited(100000);
 
 struct adjacent{
     std::vector<int>verts;
-    int size = 0;
+    int size = 0;//This is c++ 11 , remember it during compilling
 };
 
 void dfs(int vertex,const std::vector<adjacent> &graph){
