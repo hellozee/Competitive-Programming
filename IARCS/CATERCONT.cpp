@@ -17,6 +17,7 @@ struct adjacent{
 };
 
 void dfs(int vertex,const std::vector<adjacent> &graph){
+    //This is not a typical DFS , I had to give it a name at least
     visited[vertex] = true;
     int size = graph[vertex].size;
     for(int i=0;i<size;i++){
