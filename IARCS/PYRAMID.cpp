@@ -1,3 +1,5 @@
+//Solves for 70 , probably should use some better data structure
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
