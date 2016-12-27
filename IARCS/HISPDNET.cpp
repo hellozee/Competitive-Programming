@@ -1,5 +1,3 @@
-//Solves for 70 , TLE for rest
-
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -13,10 +11,12 @@ typedef struct distances{
     }
 }distances;
 
-int prims(std::vector<std::vector<int> >graph,int size,int vertex){
+int prims(const std::vector<std::vector<int> > &graph,const int &size,const int &vertex){
     std::priority_queue<distances>queue;
-    std::vector<bool>visited(size);
+    std::vector<bool>visited(size,false);
+    std::vector<int>map(size,INT_MAX);
     visited[vertex] = true;
+    map[vertex] = 0;
     //visited[0] = true;
     int total = 0;
     for(int i=0;i<size;i++){
@@ -24,6 +24,7 @@ int prims(std::vector<std::vector<int> >graph,int size,int vertex){
             distances a;
             a.index = i;
             a.dist = graph[1][i];
+            map[i] = a.dist;
             queue.push(a);
         }else{
             distances a;
@@ -32,7 +33,6 @@ int prims(std::vector<std::vector<int> >graph,int size,int vertex){
             queue.push(a);
         }
     }
-    
     while(!queue.empty()){
         distances temp = queue.top();
         queue.pop();
@@ -42,12 +42,14 @@ int prims(std::vector<std::vector<int> >graph,int size,int vertex){
             continue;
         }
         visited[ind] = true;
+        map[ind] = edge;
         total += edge;
         for(int i=0;i<size;i++){
-            if(graph[ind][i] && !visited[i]){
+            if(graph[ind][i] < map[i] && !visited[i]){
                 distances a;
                 a.index = i;
                 a.dist = graph[ind][i];
+                map[i] = a.dist;
                 queue.push(a);
             }
         }
@@ -58,6 +60,7 @@ int prims(std::vector<std::vector<int> >graph,int size,int vertex){
 
 
 int main(){
+    std::ios_base::sync_with_stdio(false);
     int n;
     std::cin >> n;
     std::vector<std::vector<int> >graph(n,std::vector<int>(n,0));
