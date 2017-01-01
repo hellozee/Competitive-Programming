@@ -19,8 +19,7 @@ int main(){
     for (int k=0;k<city;k++) {
         for (int i=0;i<city;i++) {
             for (int j=0;j<city;j++) {
-                if (graph[i][k] != INT_MAX && graph[k][j] != INT_MAX &&
-                        graph[i][k] + graph[k][j] < graph[i][j])
+                if (graph[i][k] != INT_MAX && graph[k][j] != INT_MAX && graph[i][k] + graph[k][j] < graph[i][j])
                     graph[i][j] = graph[i][k] + graph[k][j];
             }
         }
