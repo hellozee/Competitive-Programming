@@ -1,3 +1,6 @@
+//Stop overhyping this problem , this wont need a 4D matrix , it would probably take much more space than expect and would
+//be more complicated , this is a solution using 2 2D matrix , a simple one though
+
 #include <iostream>
 #include <vector>
 
