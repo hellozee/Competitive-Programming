@@ -44,7 +44,7 @@
 // 2+1+3 -- 4+6
 // We are going to cut the 3(4) edge
 // Hence the graph is divided like this
-// (2+1+3)--(4+6)--(5) , which is the solution , but before looking at the solution , I think you must try it once , now
+// (2+1+3)--(4+6)--(5) , which is the solution , but before looking at the code , I think you must try it once , now
 
 int main(){
     //Inputs
