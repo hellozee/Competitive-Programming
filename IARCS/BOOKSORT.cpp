@@ -15,8 +15,7 @@ int binaryS(const int &target,const std::vector<int> &arr,const int &size){
     return low;
 }
 
-int main (int argc, char const* argv[])
-{
+int main (){
     int n;
     std::cin >> n;
     std::vector<int>nums(n);
@@ -29,7 +28,7 @@ int main (int argc, char const* argv[])
         if(temp == size){
             size++;
         } 
-    }
-    std::cout<< n - size << std::endl;
+    } 
+    std::cout<< n-size << std::endl;
     return 0;
 }

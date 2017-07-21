@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 int main(){
     int n;
@@ -10,15 +9,17 @@ int main(){
         std::cin >> nums[i];
     }
     std::vector<int>facs(n,1);
+    int max = 0;
     for(int i=1;i<n;i++){
         for(int j=i-1;j>=0;j--){
             if(facs[j] >= facs[i] && nums[i]%nums[j] == 0){
                 facs[i] = facs[j]+1;
-                //std::cout << facs[i] << std::endl;
+                if(facs[i] > max){
+                    max = facs[i];
+                }
             }
         }
     }
-    sort(facs.begin(),facs.end() , std::greater<int>());
-    std::cout << facs[0] << std::endl;
+    std::cout << max << std::endl;
     return 0;
 }

@@ -13,11 +13,10 @@ std::vector<bool>visited(100000);
 
 struct adjacent{
     std::vector<int>verts;
-    int size = 0;//This is c++ 11 , remember it during compilling
+    int size = 0;
 };
 
 void dfs(int vertex,const std::vector<adjacent> &graph){
-    //This is not a typical DFS , I had to give it a name at least
     visited[vertex] = true;
     int size = graph[vertex].size;
     for(int i=0;i<size;i++){
