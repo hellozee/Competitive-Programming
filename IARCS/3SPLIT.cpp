@@ -16,13 +16,13 @@
 // 3 and 4 remain , let us add them to the queue , 1(3) , 2(3) ,5(4),6(4),3(4),4(null) , the nodes in brackets are their parents
 // Ok as far as the solution goes lets cut the 3(4) edge and 5(4) edge
 // It will go like this:
-// First we will traverse through the genarated array , we are no cutting 1(3) so
+// First we will traverse through the genarated array , we are not cutting 1(3) so
 //          5
 //         /
 //  1+3 -- 4
 //  /      \
 // 2        6
-// We are also no going to cut 2(3)
+// We are also not going to cut 2(3)
 //            5
 //           /
 // 2+1+3 -- 4
@@ -40,7 +40,7 @@
 // 2+1+3 -- 4+6
 // We are going to cut the 3(4) edge
 // Hence the graph is divided like this
-// (2+1+3)--(4+6)--(5) , which is the solution , but before looking at the solution , I think you must try it once , now
+// (2+1+3)--(4+6)--(5) , which is the answer , but before looking at the solution , I think you must try it once , now
 
 #include <iostream>
 #include <vector>
